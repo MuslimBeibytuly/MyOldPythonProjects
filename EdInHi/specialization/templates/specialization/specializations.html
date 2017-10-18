@@ -1,0 +1,25 @@
+{% extends 'main_app/base.html' %}
+
+{% block title %}Specializations{% endblock %}
+
+{% block content %}
+    <br><br><br><br><br><br>
+    <div class="container">
+        <div class="row">
+            {% for spec in all %}
+                 <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3 style="text-align: center"><a href="{% url "specialization" spec.id %}">{{ spec.name }}</a></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad autem consectetur cupiditate
+                                explicabo, illo inventore mollitia nihil non officiis pariatur quasi quod quos repellat
+                                sint. Ad nesciunt perspiciatis sed!</p>
+                            <p>Number of skills : {{ spec.skills.all.count }}</p>
+                            <p>Interested students : {{ spec.users.all.count }} </p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
